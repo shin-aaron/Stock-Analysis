@@ -8,7 +8,7 @@ class StockFetcher:
 
     def fetch(self):
         df = yf.download(self.ticker, start=self.start, end=self.end)
-        df = df[["Close"]]
-        df.columns = ["Close"]
+        df = df[["Close", "Volume", "High", "Low"]]
+        df.columns = ["Close", "Volume", "High", "Low"]
         self.data = df
         return self.data
